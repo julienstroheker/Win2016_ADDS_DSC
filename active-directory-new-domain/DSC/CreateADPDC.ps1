@@ -22,10 +22,7 @@ configuration CreateADPDC
         LocalConfigurationManager 
         {
             ActionAfterReboot   = 'ContinueConfiguration'
-            ConfigurationMode   = 'ApplyAndMonitor'
-            RebootNodeIfNeeded  = $true
-            AllowModuleOverWrite = $true
-
+            RebootNodeIfNeeded = $true
         }
 
 	    WindowsFeature DNS 
