@@ -1,4 +1,4 @@
-configuration CreateADPDC 
+﻿configuration CreateADPDC 
 { 
    param 
    ( 
@@ -22,7 +22,9 @@ configuration CreateADPDC
         LocalConfigurationManager 
         {
             ActionAfterReboot   = 'ContinueConfiguration'
-            RebootNodeIfNeeded = $true
+            ConfigurationMode   = 'ApplyAndMonitor'
+            RebootNodeIfNeeded  = $true
+            AllowModuleOverWrite = $true
         }
 
 	    WindowsFeature DNS 
@@ -115,7 +117,7 @@ configuration CreateADPDC
         {
             EnterpriseAdministratorCredential = $DomainCreds
             ForestFQDN                        = $DomainName
-            DependsOn = '[xWaitForADDomain]DC1Forest'
+            DependsOn                         = '[xWaitForADDomain]DC1Forest'
         }
 
         Script ResetDNS
